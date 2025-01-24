@@ -1,10 +1,28 @@
 .message_window {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 20px;
     width: 100%;
-    height: calc(100% - 50px);
-    justify-content: flex-end;
+    height: calc(100vh - 120px);
+    padding: 20px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 }
 
 .message_from {
@@ -15,4 +33,31 @@
 .message_to {
     width: fit-content;
     align-self: flex-start;
+}
+
+.message_group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.date_divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    
+    span {
+        background-color: rgb(35, 118, 212);
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-size: 14px;
+        color: #f1f1f1
+    }
+}
+
+.observer_target {
+    height: 1px;
+    color: #000;
+    width: 100%;
 }

@@ -1,0 +1,35 @@
+.file_input_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px
+}
+
+.file_input {
+    opacity: 0;
+    width: 265px;
+    height: 50px;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.file_label {
+    display: block;
+    width: 265px;
+    padding: 10px 20px;
+    background-color: rgb(53, 128, 214);
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+    position: relative;
+}
+
+.file_label:hover {
+    background-color: rgb(53, 128, 214);
+}

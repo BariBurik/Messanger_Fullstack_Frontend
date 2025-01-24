@@ -17,3 +17,30 @@
     width: 100%;
     margin-bottom: 10px;
 }
+
+.avatar_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.close_button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+    bottom: 20px;
+    left: 5px;
+}
+
+.close_button:hover {
+    color: rgb(39, 39, 39)
+}
+
+.hidden {
+    display: none;
+}

@@ -1,7 +1,8 @@
 import { getCookie } from '@/services/getCookie';
-import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache, HttpLink, ApolloLink, useQuery } from '@apollo/client';
 import { WebSocketLink } from '@apollo/client/link/ws';
 import { setContext } from '@apollo/client/link/context';
+
 
 const httpLinkGraphene = new HttpLink({
     uri: 'http://localhost:8000/graphql/graphene/',
@@ -34,9 +35,26 @@ const httpLink = ApolloLink.split(
 const wsLink = new WebSocketLink({ 
     uri: `ws://127.0.0.1:8000/graphql/subscription/`, 
     options: { 
-        reconnect: true
+        reconnect: true,
+        // Используем тот же подход с cookie, что и для HTTP запросов
+        connectionParams: () => {
+            const csrfToken = getCookie('csrftoken');
+            return {
+                headers: {
+                    'X-CSRFToken': csrfToken || "",
+                    // Добавляем заголовки для передачи cookie
+                    'Cookie': document.cookie
+                },
+                credentials: 'include'
+            };
+        },
+        connectionCallback: (error) => {
+            if (error) {
+                console.error('WebSocket connection error:', error);
+            }
+        },
     }
-})
+});
 
 const link = ApolloLink.split(
     operation =>

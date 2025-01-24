@@ -5,7 +5,7 @@ type Color = 'primary' | 'secondary'
 interface ButtonProps {
     color?: Color
     children: string
-    onClick?: () => void
+    onClick?: (e: React.MouseEvent) => void
 }
 
 
@@ -17,7 +17,7 @@ function Button({ color, children, onClick }: ButtonProps) {
     }
 
     return ( 
-        <button onClick={() => onClick()} style={{backgroundColor: buttonsColor[color], color: color === "primary" || color === undefined ? "rgb(228, 228, 228)" : "rgb(47, 116, 196)" }} className={styles.button}>{children}</button>
+        <button onClick={onClick} style={{backgroundColor: buttonsColor[color], color: color === "primary" || color === undefined ? "rgb(228, 228, 228)" : "rgb(47, 116, 196)" }} className={styles.button}>{children}</button>
      );
 }
 

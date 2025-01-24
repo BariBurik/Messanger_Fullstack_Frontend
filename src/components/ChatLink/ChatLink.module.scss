@@ -8,11 +8,12 @@
     width: 225px;
     cursor: pointer;
     caret-color: transparent;
+    text-decoration: none;
+    color: black;    
 }
 
 .mobile_chat {
-    width: calc(100% - 25px);
-    box-sizing: border-box;
+    width: 90%;
     padding: 10px;
 }
 
@@ -77,51 +78,16 @@
     color: rgb(184, 184, 184);
 }
 
-.unread, .mobile_unread {
-    padding: 5px 10px;
-    border-radius: 35%;
-    background-color: rgb(60, 131, 212);
-    color: rgb(243, 243, 243);
+.active {
+    background-color: rgb(114, 164, 223);
+}
+
+.mobile_text {
+    width: 100%;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    .mobile_last_message, .mobile_username {
-        max-width: 345px;
-    }
-
     .mobile_unread, .mobile_time, .mobile_last_message, .mobile_username {
         font-size: 50px;
     }
 }
-
-@media (min-width: 820px) and (max-width: 1023px) {
-    .mobile_last_message, .mobile_username {
-        max-width: 400px;
-    }
-}
-
-@media (min-width: 1024px){
-    .mobile_last_message{
-        max-width: 600px;
-    }
-}
-
-@media (max-width: 430px) {
-    .mobile_last_message, .mobile_username {
-        font-size: 25px;
-        max-width: 230px;
-    }
-}
-
-@media (max-width: 400px) {
-    .mobile_last_message {
-        max-width: 210px;
-    }
-}
-
-@media (max-width: 375px) {
-    .mobile_last_message {
-        max-width: 180px;
-    }
-}
-

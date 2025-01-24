@@ -1,0 +1,39 @@
+.top_chats_bar, .mobile_top_chats_bar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    height: 50px;
+    box-sizing: border-box; 
+}
+
+.top_chats_bar {
+    width: calc(100% - 307px);
+}
+
+.chats_name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.mobile_top_chats_bar {
+    justify-content: center;
+}
+
+.back_button {
+    background: none;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+    left: -40%
+}

@@ -1,20 +1,32 @@
-import { useEffect, useState } from "react";
-import Template from "../UI/Template/Template";
-import Message from "../Message/Message";
-import MessageWindow from "../MessagesWindow/MessageWindow";
-import Chat from "../Chat/Chat";
-import LoginOrRegPage from "@/pages/DesktopVers/LoginOrRegPage/LoginOrReg";
-import ProfileModal from "../ProfileModal/ProfileModal";
-import ProfilePage from "@/pages/Mobile/ProfilePage/ProfilePage";
-import ChatPage from "@/pages/Mobile/ChatPage/ChatPage";
-import MainPage from "@/pages/Mobile/MainPage/MainPage";
+import { useUserReLoginQuery } from "@/store";
+import AppRouter from "../AppRouter";
+import { useEffect, useRef } from "react";
+import { useAppDispatch } from "@/hooks/redux";
+import { setUserAuth } from "@/store/ActionCreators/User";
+import { checkAndSetCSRFToken } from "@/services/checkAndSetCookie";
 
- 
 export const App = () => {
+
+    const dispatch = useAppDispatch()
+    const initialLoad = useRef(true)
+    const {data: userData, isLoading: isLoadingUser} = useUserReLoginQuery()
+    
+
+    useEffect(() => {
+        if (userData && initialLoad.current) {
+            let user = userData.userReLogin.user
+            user = {...user, avatar: `http://localhost:8000/media/${user.avatar}`}
+            setUserAuth(dispatch, user, userData.userReLogin.tempToken)
+            initialLoad.current = false;
+        }
+    }, [userData])
+
+    useEffect(() => {
+        checkAndSetCSRFToken();
+    }, [])
+
     return ( 
-        <div>
-            <MainPage/>
-        </div>
+        <AppRouter isLoading={isLoadingUser}/>
     );
 }
 

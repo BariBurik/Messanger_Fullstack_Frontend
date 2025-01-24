@@ -1,6 +1,9 @@
 .navbar {
     display: flex;
     width: 320px;
+    border: 1px solid #e0e0e0;
+    height: calc(100% - 10px);
+    box-sizing: border-box;
 }
 
 .mobile_navbar {

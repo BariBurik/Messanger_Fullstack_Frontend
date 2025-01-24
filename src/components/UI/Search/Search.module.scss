@@ -60,3 +60,52 @@
         border-radius: 10px;
     }
 }
+
+.search_result {
+    overflow-x: hidden;
+    width: 245px;
+    position: absolute;
+    top: 100%;
+    right: -10%;
+    z-index: 100;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: scroll;
+    height: calc(100vh - 87.5px);
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+.small {
+    height: 100px;
+}
+
+.mobile {
+    width: 100%;
+    overflow-x: hidden;
+    width: 250px;
+}
+
+.search_result_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2px;
+    cursor: pointer;
+}

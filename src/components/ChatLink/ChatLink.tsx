@@ -1,52 +1,61 @@
+import { Link, useNavigate } from "react-router-dom";
 import Avatar from "../UI/Avatar/Avatar";
 import styles from "./ChatLink.module.scss";
+import { useParams } from "react-router-dom";
+import { memo, useEffect, useRef } from "react";
 
 interface ChatProps {
     avatar?: string
-    username: string
-    lastMessage: string
-    time: string, 
-    unread?: string,
+    name: string
+    lastMessage?: string
+    time?: string, 
 }
 
-function Chat({avatar, username, lastMessage, time, unread}: ChatProps) {
+function Chat({avatar, name, lastMessage, time}: ChatProps) {
     const isMobile = __PLATFORM__ == "mobile"
+    const linkRef = useRef<HTMLAnchorElement>(null)
     
+    const {name: chatName} = useParams()
+
+    useEffect(() => {
+        if (chatName == name) {
+            linkRef.current?.classList.add(styles.active)
+        } else {
+            linkRef.current?.classList.remove(styles.active)
+        }
+    }, [chatName, name])
+
     if (isMobile) {
         return ( 
-            <div className={styles.mobile_chat}>
+            <Link to={`/chat/${name}`} ref={linkRef} className={styles.mobile_chat}>
                 <Avatar avatar={avatar !== undefined ? avatar : ""}/>
                 <div className={styles.mobile_text}>
                     <div className={styles.mobile_top_row}>
-                        <div className={styles.mobile_username}>{username}</div>
-                        <div className={styles.mobile_time}>{time}</div>
+                        <div className={styles.mobile_username}>{name}</div>
+                        {time && <div className={styles.mobile_time}>{time && time}</div>}
                     </div>
                     <div className={styles.mobile_bottom_row}>
-                        <div className={styles.mobile_last_message}>{lastMessage}</div>
-                        <div className={styles.mobile_unread}>{unread !== "" ? unread : ""}</div>
+                        {lastMessage && <div className={styles.mobile_last_message}>{lastMessage}</div>}
                     </div>
                 </div>
-            </div>
+            </Link>
         );
     } else {
         return ( 
-            <div className={styles.chat}>
+            <Link to={`/chat/${name}`} ref={linkRef} className={styles.chat}>
                 <Avatar avatar={avatar !== undefined ? avatar : ""}/>
                 <div className={styles.text}>
                     <div className={styles.top_row}>
-                        <div className={styles.username}>{username}</div>
-                        <div className={styles.time}>{time}</div>
+                        <div className={styles.username}>{name}</div>
+                        {time && <div className={styles.time}>{time}</div>}
                     </div>
                     <div className={styles.bottom_row}>
-                        <div className={styles.last_message}>{lastMessage}</div>
-                        <div className={styles.unread}>{unread !== "" ? unread : ""}</div>
+                        {lastMessage && <div className={styles.last_message}>{lastMessage}</div>}
                     </div>
                 </div>
-            </div>
+            </Link>
         );
     }
-
-    return null;
 }
 
-export default Chat;
+export default memo(Chat);

@@ -1,5 +1,4 @@
 import styles from "./Message.module.scss";
-
 type Direction = "for u" | "from u";
 
 interface MessageProps {   
@@ -9,6 +8,7 @@ interface MessageProps {
 }
 
 function Message({children, direction, time}: MessageProps) {
+
     if (direction === "for u") {
         return ( 
             <div className={styles.message_container}> 
@@ -20,7 +20,8 @@ function Message({children, direction, time}: MessageProps) {
     } else {
         return ( 
             <div className={styles.message_reverse_container}> 
-                <div className={styles.message_reverse_tail}></div>
+                <div className={styles.message_reverse_tail}>
+                </div>
                 <div className={styles.message_reverse_time}>{time}</div>
                 <p>{children}</p>
             </div>

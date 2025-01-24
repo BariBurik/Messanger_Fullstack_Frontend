@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 36px);
     width: 245px;
 
     &::-webkit-scrollbar {
@@ -21,10 +21,11 @@
     &::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
+    
 }
 
 .mobile_chatbar {
-    height: calc(100vh - 64px);
+    height: calc(100vh - 36px);
     width: 100%;
     overflow-y: auto;
 
@@ -48,5 +49,36 @@
 @media (min-width: 768px) and (max-width: 1024px) {
     .mobile_chatbar {
         height: calc(100% - 103px);
+    }
+}
+
+.button, .mobile_button {
+    border: none;
+    padding: 10px 5px;
+    background-color: rgb(53, 128, 214);
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    width: 245px;
+}
+
+.mobile_button {
+    width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .mobile_button {
+        height: 80px;
+        font-size: 30px;
+    }
+
+    .mobile_chatbar {
+        height: calc(100vh - 80px);
+        width: 100%;
+        overflow-y: auto;
+    
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
