@@ -1,43 +1,19 @@
-import { useChatroomSubscription, useSendMessage } from "@/API/hooks/messageHooks";
 import { useEffect, useState } from "react";
+import Template from "../UI/Template/Template";
+import Message from "../Message/Message";
+import MessageWindow from "../MessagesWindow/MessageWindow";
+import Chat from "../Chat/Chat";
+import LoginOrRegPage from "@/pages/DesktopVers/LoginOrRegPage/LoginOrReg";
+import ProfileModal from "../ProfileModal/ProfileModal";
+import ProfilePage from "@/pages/Mobile/ProfilePage/ProfilePage";
+import ChatPage from "@/pages/Mobile/ChatPage/ChatPage";
+import MainPage from "@/pages/Mobile/MainPage/MainPage";
 
  
 export const App = () => {
-
-    const [messageText, setMessageText] = useState('');
-    const [messages, setMessages] = useState(['']);
-
-    const subscriptionMessagesResp = useChatroomSubscription('ДАУНЫ');
-
-    const [sendMessage, messageResp] = useSendMessage()
-    console.log(messageResp)
-   
-
-    useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === 'Enter') {
-                sendMessage({variables: {
-                    text: messageText, 
-                    chatroomName: "ДАУНЫ"
-                    },
-                    context: {
-                        server: "strawberry"
-                    },
-                });
-            }
-        }
-
-        window.addEventListener('keydown', handleKeyDown);
-
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown);
-        }
-    })
-
     return ( 
         <div>
-            <input value={messageText} onChange={(e) => setMessageText(e.target.value)} type="text" />
-            <div>{messages}</div>
+            <MainPage/>
         </div>
     );
 }

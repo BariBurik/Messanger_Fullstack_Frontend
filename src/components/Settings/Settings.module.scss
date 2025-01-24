@@ -1,0 +1,30 @@
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 60px;
+    gap: 20px;
+    caret-color: transparent;
+    background-color: rgb(187, 187, 187);
+}
+
+.exit {
+    width: 60px;
+    height: 60px;
+}
+
+.user {
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .settings {
+        width: 150px;
+    }
+
+    .exit {
+        width: 150px;
+        height: 150px;
+    }
+}

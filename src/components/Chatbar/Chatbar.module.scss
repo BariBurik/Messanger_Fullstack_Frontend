@@ -1,0 +1,52 @@
+.chatbar {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: calc(100vh - 64px);
+    width: 245px;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+.mobile_chatbar {
+    height: calc(100vh - 64px);
+    width: 100%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.mobile_chatbar_and_search {
+    width: calc(100% - 60px);
+}
+
+.chatbar_and_search {
+    background-color: #fff;
+}
+
+.search {
+    justify-self: center;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .mobile_chatbar {
+        height: calc(100% - 103px);
+    }
+}

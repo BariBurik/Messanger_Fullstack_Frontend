@@ -1,0 +1,18 @@
+.message_window {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: calc(100% - 50px);
+    justify-content: flex-end;
+}
+
+.message_from {
+    width: fit-content;
+    align-self: flex-end;
+}
+
+.message_to {
+    width: fit-content;
+    align-self: flex-start;
+}

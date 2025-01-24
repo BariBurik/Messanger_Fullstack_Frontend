@@ -1,0 +1,16 @@
+.bottom_chats_bar {
+    display: flex;
+    justify-content: space-evenly;
+    height: 50px;
+    width: 100%;
+    background-color: #fff;
+}
+
+.send {
+    cursor: pointer;
+    caret-color: transparent;
+    fill: rgb(0, 207, 162);
+    height: 30px;
+    width: 30px;
+    margin: 10px 0 0 0;
+}

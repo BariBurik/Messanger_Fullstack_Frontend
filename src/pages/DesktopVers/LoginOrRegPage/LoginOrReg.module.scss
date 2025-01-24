@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login_or_reg {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.switch {
+    font-style: italic;
+    cursor: pointer;
+    color: rgb(134, 134, 134);
+    caret-color: transparent;
+}
+
+.button {
+    display: none;
+}

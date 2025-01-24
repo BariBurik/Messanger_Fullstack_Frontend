@@ -1,4 +1,4 @@
-import webpack from 'webpack'
+import webpack, { Configuration } from 'webpack'
 import {buildDevServer} from './buildDevServer'
 import { buildLoaders } from './buildLoaders'
 import { buildPlugins } from './buildPlugins'
@@ -6,8 +6,7 @@ import { buildResolver } from './buildResolver'
 import { BuildOptions } from './types/types'
 
 export function buildWebpack(options: BuildOptions): webpack.Configuration {
-    
-    const {mode, port, paths} = options
+    const {mode, paths, analyzer, port} = options
 
     const isDev = mode === "development"
     

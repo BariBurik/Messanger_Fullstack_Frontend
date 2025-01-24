@@ -1,0 +1,22 @@
+.button {
+    display: flex;
+    padding: 30px 20px;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 30px;
+    background-color: rgb(53, 128, 214);
+    border: none;
+    color: rgb(228, 228, 228);
+    border-radius: 5px;
+
+    &:hover {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+
+    &:active {
+        box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.1), 
+                    inset -3px -3px 8px rgba(255, 255, 255, 0.2);
+    }
+}

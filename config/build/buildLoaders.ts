@@ -44,31 +44,16 @@ export function buildLoaders({mode}: BuildOptions): ModuleOptions['rules'] {
     const scssLoader = {
         test: /\.s[ac]ss$/i,
         use: [isDev ? "style-loader" : MiniCssExtractPlugin.loader, 
-            cssLoaderWithModules, 
-            "sass-loader"
+            cssLoaderWithModules,
+            'sass-loader'
         ]
     }
 
-    const swcLoader = {
-        test: /\.(ts|tsx)$/,  // This will include both .ts and .tsx files
-        exclude: /(node_modules|bower_components)/,
-        use: {
-            loader: "swc-loader",
-            options: {
-                jsc: {
-                    parser: {
-                        syntax: "typescript",
-                        tsx: true
-                    },
-                    transform: {
-                        react: {
-                            runtime: 'automatic'
-                        }
-                    }
-                }
-            }
-        }
+    const tsLoader = {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
     }
     
-    return [scssLoader, swcLoader, assetLoader, svgrLoader]
+    return [scssLoader, tsLoader, assetLoader, svgrLoader]
 }
