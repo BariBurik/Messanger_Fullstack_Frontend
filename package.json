@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start:prod": "serve -s build",
     "start:mobile": "set USER_AGENT=Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) && webpack serve --env mode=development",
     "start": "webpack serve --env mode=development",
     "build:dev": "webpack --env mode=development",
@@ -31,6 +32,7 @@
     "react-redux": "^9.2.0",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.0",
+    "serve": "^14.2.4",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.5.0",
     "ts-node": "^10.9.1",
