@@ -7,7 +7,7 @@ import { IUserRegister, IUserUpdate, IUser, ReLogin, IGetUsersPerQuery } from "@
 
 export const userAPI = createApi({
     reducerPath: "userAPI",
-    baseQuery: graphqlBaseQuery({ baseUrl: "http://localhost:8000/graphql/graphene/" }),
+    baseQuery: graphqlBaseQuery({ baseUrl: "http://95.163.230.130:8000/graphql/graphene/" }),
     tagTypes: ["UserChange", "UserCreate"],
     endpoints: (builder) => ({
       // Мутации

@@ -5,7 +5,7 @@ import { setContext } from '@apollo/client/link/context';
 
 
 const httpLinkGraphene = new HttpLink({
-    uri: 'http://localhost:8000/graphql/graphene/',
+    uri: 'http://95.163.230.130:8000/graphql/graphene/', // При локальном запуске заменить на http://localhost:8000/graphql/graphene/
     credentials: 'include',
     headers: {
         'Content-Type': 'application/json',
@@ -13,7 +13,7 @@ const httpLinkGraphene = new HttpLink({
 });
 
 const httpLinkStrawberry = new HttpLink({
-    uri: 'http://localhost:8000/graphql/strawberry/',
+    uri: 'http://95.163.230.130:8000/graphql/strawberry/',
     credentials: 'include',
     headers: {
         'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const httpLink = ApolloLink.split(
 
 // Создание WebSocket-соединения для подписок
 const wsLink = new WebSocketLink({ 
-    uri: `ws://127.0.0.1:8000/graphql/subscription/`, 
+    uri: `ws://95.163.230.130:8000/graphql/subscription/`, // При локальном запуске заменить на http://127.0.0.1:8000/graphql/graphene/
     options: { 
         reconnect: true,
         // Используем тот же подход с cookie, что и для HTTP запросов
