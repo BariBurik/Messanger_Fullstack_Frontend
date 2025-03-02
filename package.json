@@ -6,8 +6,7 @@
     "start:mobile": "set USER_AGENT=Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) && webpack serve --env mode=development",
     "start": "webpack serve --env mode=development",
     "build:dev": "webpack --env mode=development",
-    "build:prod": "webpack --env mode=production",
-    "generate": "graphql-codegen"
+    "build:prod": "webpack --env mode=production"
   },
   "keywords": [],
   "author": "",
