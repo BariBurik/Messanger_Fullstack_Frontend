@@ -43,15 +43,12 @@ function CreateChatModal({isOpen, setIsOpen}: CreateChatModalProps) {
 
     const handleCreate = () => {
         let participants: Partial<IChatroomCreateArgs> = {};
-        console.log("Selected users:", selected);
-        for (let i = 1; i < selected.length; i++) {
-            participants[`user${i + 1}`] = Number(selected[i].id);
-            console.log(`user${i + 1}:`, selected[i].id);
+        for (let i = 0; i < selected.length; i++) {
+            participants[`user${i + 2}`] = Number(selected[i].id);
         }
 
         if (participants) {
             setIsOpen(false)
-            console.log(participants)
             createChatroom({
                 name: chatName, 
                 users: participants,

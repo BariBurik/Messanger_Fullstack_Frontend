@@ -62,8 +62,8 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
         
         let participants: Partial<IChatroomCreateArgs> = {};
 
-        for (let i = 1; i < selected.length; i++) {
-            participants[`user${i + 1}`] = Number(selected[i].id) 
+        for (let i = 0; i < selected.length; i++) {
+            participants[`user${i + 2}`] = Number(selected[i].id) 
         }
 
         if (participants && chatName && selected.length > 0 && selected.length < 8) {
