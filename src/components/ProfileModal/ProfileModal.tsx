@@ -17,7 +17,7 @@ interface ProfileProps {
 function ProfileModal({setIsOpen, isOpen}: ProfileProps) {
     const dispatch = useAppDispatch()
 
-    const [newUserUpdate] = useUserUpdateMutation()
+    const [newUserUpdate, isSuccess] = useUserUpdateMutation()
 
     const name = useSelector((state: RootState) => state.user.username)
     const email = useSelector((state: RootState) => state.user.email)
@@ -31,12 +31,14 @@ function ProfileModal({setIsOpen, isOpen}: ProfileProps) {
     const handleChange = () => {
         setIsOpen(false)
         try {
-            newUserUpdate({ name: newname, email: newEmail, password: newPassword, avatar: newAvatar }).unwrap();
-            setIsOpen(false);
-            setNewname('')
-            setNewEmail('')
-            setNewPassword('')
-            setNewAvatar(null)
+            newUserUpdate({ name: newname, email: newEmail, password: newPassword, avatar: newAvatar }).unwrap()
+            if (isSuccess) {
+                setNewname('')
+                setNewEmail('')
+                setNewPassword('')
+                setNewAvatar(null)
+                setImage(null)
+            }
         } catch (error) {
             
         }

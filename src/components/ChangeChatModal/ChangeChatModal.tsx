@@ -20,8 +20,8 @@ interface ChangeChatModalProps {
 
 export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
 
-    const [updateChatroom, {data: updateChatroomData}] = useChatroomUpdateMutation()
-    const [deleteChatroom, {data: deleteChatroomData}] = useChatroomDeleteMutation()
+    const [updateChatroom, {data: updateChatroomData, isSuccess: isSuccessUpdate}] = useChatroomUpdateMutation()
+    const [deleteChatroom, {data: deleteChatroomData, isSuccess: isSuccessDelete}] = useChatroomDeleteMutation()
 
     const navigate = useNavigate()
 
@@ -75,10 +75,14 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
                 avatar: newAvatar
             })
 
-            setChatName('')
-            setNewAvatar(null)
-            setSelected([])
-            setWrongVisibale(false)
+            if (isSuccessUpdate) {
+                setChatName('')
+                setParticipants('')
+                setNewAvatar(null)
+                setImage(null)
+                setSelected([])
+                setWrongVisibale(false)
+            }
         }
         if (updateChatroomData?.name) {
             navigate(`/chat/${updateChatroomData.name}`)
@@ -91,6 +95,16 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
         e.stopPropagation()
         setIsOpen(false)
         deleteChatroom({id: Number(currentChat.id)})
+
+        if (isSuccessDelete) {
+            setChatName('')
+            setParticipants('')
+            setNewAvatar(null)
+            setImage(null)
+            setSelected([])
+            setWrongVisibale(false)
+        }
+
         navigate(`/`)
     }
 

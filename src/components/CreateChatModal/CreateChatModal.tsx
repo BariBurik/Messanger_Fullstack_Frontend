@@ -32,7 +32,7 @@ export interface ISelectedItem {
 
 function CreateChatModal({isOpen, setIsOpen}: CreateChatModalProps) {
 
-    const [createChatroom] = useChatroomCreateMutation()
+    const [createChatroom, {isSuccess}] = useChatroomCreateMutation()
 
     const [chatName, setChatName] = useState<string>('');
     const [participants, setParticipants] = useState<string>('');
@@ -54,12 +54,14 @@ function CreateChatModal({isOpen, setIsOpen}: CreateChatModalProps) {
             users: participants,
             avatar: newAvatar
         })
-        setChatName('')
-        setNewAvatar(null)
-        setSelected([])
-        setWrongVisibale(false)
-        setParticipants('')
-        setSelected([])
+        if (isSuccess) {
+            setChatName('')
+            setParticipants('')
+            setNewAvatar(null)
+            setImage(null)
+            setSelected([])
+            setWrongVisibale(false)
+        }
     }
 
     const handleClickToCancelChosedImage = (e: React.MouseEvent) => {
