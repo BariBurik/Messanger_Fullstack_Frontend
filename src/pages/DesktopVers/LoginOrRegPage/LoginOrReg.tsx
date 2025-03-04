@@ -69,11 +69,11 @@ function LoginOrRegPage() {
         }
     }, [name, email, password, checkPassword, userLogData, userRegData])
 
-    useEffect(() => {
-        if (userLogData.isSuccess || userRegData.isSuccess) {
-            window.location.reload(); 
-        }
-    }, [userLogData.isSuccess, userRegData.isSuccess]);
+    // useEffect(() => {
+    //     if (userLogData.isSuccess || userRegData.isSuccess) {
+    //         window.location.reload(); 
+    //     }
+    // }, [userLogData.isSuccess, userRegData.isSuccess]);
 
     return (
         <div className={styles.container}>
