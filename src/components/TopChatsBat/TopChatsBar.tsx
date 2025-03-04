@@ -11,7 +11,8 @@ interface TopChatsBarProps {
 
 
 function TopChatsBar({isOpen, setIsOpen, chatsName}: TopChatsBarProps) {
-    const isMobile = __PLATFORM__ === "mobile"
+    const userAgent = process.env.USER_AGENT || ''; 
+    const isMobile = /android|ios|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
 
     const navigate = useNavigate()
 

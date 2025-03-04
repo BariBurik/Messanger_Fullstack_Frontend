@@ -11,7 +11,8 @@ import { guest } from '../../../public/guest.jpg'
 
 function Settings() {
 
-    const isMobile = __PLATFORM__ == "mobile"
+    const userAgent = process.env.USER_AGENT || ''; 
+    const isMobile = /android|ios|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
     const dispatch = useAppDispatch()
 
     const avatar = useSelector((state: RootState) => state.user.avatar)

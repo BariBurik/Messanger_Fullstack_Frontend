@@ -12,7 +12,8 @@ interface ChatProps {
 }
 
 function Chat({avatar, name, lastMessage, time}: ChatProps) {
-    const isMobile = __PLATFORM__ == "mobile"
+    const userAgent = process.env.USER_AGENT || ''; 
+    const isMobile = /android|ios|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
     const linkRef = useRef<HTMLAnchorElement>(null)
 
     const pathToAvatar = avatar.split('/media/')[1];

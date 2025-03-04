@@ -11,7 +11,8 @@ interface AppRouterProps {
 function AppRouter({isLoading}: AppRouterProps) {
     const isAuth = useSelector((state: RootState) => state.user.isAuth)
 
-    const isMobile = __PLATFORM__ === 'mobile'
+    const userAgent = process.env.USER_AGENT || ''; 
+    const isMobile = /android|ios|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
 
     if (isLoading) {
         return <Loader/>

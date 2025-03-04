@@ -32,7 +32,8 @@ function Search({query, onChange, placeholder, searchResultSize="fullScreen", se
 
     const { data } = useGetUsersPerQueryQuery({searchQuery: query, excludes})
 
-    const isMobile = __PLATFORM__ == "mobile"
+    const userAgent = process.env.USER_AGENT || ''; 
+    const isMobile = /android|ios|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
 
     const handeClickToItem = (id: number, name: string) => {
         if (searchResultSize === "fullScreen") {
