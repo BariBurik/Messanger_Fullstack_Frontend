@@ -13,6 +13,8 @@ function Settings() {
     const isMobile = __PLATFORM__ == "mobile"
     const dispatch = useAppDispatch()
 
+    const avatar = useSelector((state: RootState) => state.user.avatar)
+
     const [isOpen, setIsOpen] = useState(false)
     
     const handleAvatarOnClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -39,7 +41,7 @@ function Settings() {
     return ( 
         <div className={styles.settings}>
             <div onClick={(e) => {handleAvatarOnClick(e)}} className={styles.user}>
-                <Avatar avatar={useSelector((state: RootState) => state.user.avatar)} />
+                <Avatar avatar={avatar && avatar} />
             </div>
             <ProfileModal setIsOpen={setIsOpen} isOpen={isOpen}/>
             <div onClick={handleExit} className={styles.exit}><Exit className={styles.exit}/></div>

@@ -32,13 +32,6 @@ function ProfileModal({setIsOpen, isOpen}: ProfileProps) {
         setIsOpen(false)
         try {
             newUserUpdate({ name: newname, email: newEmail, password: newPassword, avatar: newAvatar }).unwrap()
-            if (isSuccess) {
-                setNewname('')
-                setNewEmail('')
-                setNewPassword('')
-                setNewAvatar(null)
-                setImage(null)
-            }
         } catch (error) {
             
         }

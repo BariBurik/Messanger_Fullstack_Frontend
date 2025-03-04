@@ -54,14 +54,6 @@ function CreateChatModal({isOpen, setIsOpen}: CreateChatModalProps) {
             users: participants,
             avatar: newAvatar
         })
-        if (isSuccess) {
-            setChatName('')
-            setParticipants('')
-            setNewAvatar(null)
-            setImage(null)
-            setSelected([])
-            setWrongVisibale(false)
-        }
     }
 
     const handleClickToCancelChosedImage = (e: React.MouseEvent) => {

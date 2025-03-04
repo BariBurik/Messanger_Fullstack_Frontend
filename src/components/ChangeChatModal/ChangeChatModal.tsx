@@ -74,15 +74,6 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
                 users: participants,
                 avatar: newAvatar
             })
-
-            if (isSuccessUpdate) {
-                setChatName('')
-                setParticipants('')
-                setNewAvatar(null)
-                setImage(null)
-                setSelected([])
-                setWrongVisibale(false)
-            }
         }
         if (updateChatroomData?.name) {
             navigate(`/chat/${updateChatroomData.name}`)
@@ -95,15 +86,6 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
         e.stopPropagation()
         setIsOpen(false)
         deleteChatroom({id: Number(currentChat.id)})
-
-        if (isSuccessDelete) {
-            setChatName('')
-            setParticipants('')
-            setNewAvatar(null)
-            setImage(null)
-            setSelected([])
-            setWrongVisibale(false)
-        }
 
         navigate(`/`)
     }
