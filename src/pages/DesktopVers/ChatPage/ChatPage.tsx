@@ -27,11 +27,11 @@ function ChatPage() {
                 id: Number(message.id),
                 text: message.text,
                 user: {
-                    ...message.user,
-                    id: Number(message.user.id)
+                    id: Number(message.user.id),
+                    name: message.user.id,
+                    avatar: message.user.avatar
                 },
-                createdAt: message.createdAt,
-                isRead: message.isRead
+                createdAt: message.createdAt
             }))
             const chat: ICurrentChatSlice = {
                 id: chatroom.chatroom.id,

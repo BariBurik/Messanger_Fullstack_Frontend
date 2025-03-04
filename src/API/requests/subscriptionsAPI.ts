@@ -10,6 +10,7 @@ export const MESSAGE_SUBSCRIPTION = gql`
       user {
         id
         name
+        avatar
       }
       chatroom {
         id

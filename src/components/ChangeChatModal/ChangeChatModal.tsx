@@ -74,10 +74,16 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
                 users: participants,
                 avatar: newAvatar
             })
+
+            setChatName('')
+            setNewAvatar(null)
+            setSelected([])
+            setWrongVisibale(false)
         }
         if (updateChatroomData?.name) {
             navigate(`/chat/${updateChatroomData.name}`)
         }
+
         setIsOpen(false)
     }
 

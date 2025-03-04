@@ -62,7 +62,8 @@ function MessageWindow() {
                 text: message.text,
                 user: {
                     id: Number(message.user.id),
-                    name: message.user.name
+                    name: message.user.name,
+                    avatar: message.user.avatar
                 }
             })))
         }
@@ -135,6 +136,7 @@ function MessageWindow() {
 
     const groupedMessages = () => {
         const groups: MessageGroups = messages.reduce<MessageGroups>((acc, message) => {
+            console.log(message.user)
             const date = new Date(message.createdAt);
             const dateString = date.toDateString();
             
@@ -168,6 +170,7 @@ function MessageWindow() {
                             <Message 
                                 time={message.createdAt ? formatTime(new Date(message.createdAt)) : null}
                                 direction={message.user.id == user.id ? "from u" : "for u"}
+                                avatar={message.user.avatar}
                             >
                                 {message.text}
                             </Message>
