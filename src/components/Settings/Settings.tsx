@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/hooks/redux';
 import { RootState } from '@/store';
 import { setUserLogout } from '@/store/ActionCreators/User';
+import { guest } from '../../../public/guest.jpg'
 
 function Settings() {
 
@@ -41,7 +42,7 @@ function Settings() {
     return ( 
         <div className={styles.settings}>
             <div onClick={(e) => {handleAvatarOnClick(e)}} className={styles.user}>
-                <Avatar avatar={avatar && avatar} />
+                <Avatar avatar={avatar ? avatar : guest} />
             </div>
             <ProfileModal setIsOpen={setIsOpen} isOpen={isOpen}/>
             <div onClick={handleExit} className={styles.exit}><Exit className={styles.exit}/></div>
