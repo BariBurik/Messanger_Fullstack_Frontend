@@ -47,14 +47,15 @@ function CreateChatModal({isOpen, setIsOpen}: CreateChatModalProps) {
         for (let i = 1; i < selected.length; i++) {
             participants[`user${i + 1}`] = Number(selected[i].id) 
         }
-        console.log(participants)
-        console.log(selected)
-        setIsOpen(false)
-        createChatroom({
-            name: chatName, 
-            users: participants,
-            avatar: newAvatar
-        })
+
+        if (participants) {
+            setIsOpen(false)
+            createChatroom({
+                name: chatName, 
+                users: participants,
+                avatar: newAvatar
+            })
+        }
     }
 
     const handleClickToCancelChosedImage = (e: React.MouseEvent) => {

@@ -66,7 +66,7 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
             participants[`user${i + 1}`] = Number(selected[i].id) 
         }
 
-        if (chatName && selected.length > 0 && selected.length < 8) {
+        if (participants && chatName && selected.length > 0 && selected.length < 8) {
             
             updateChatroom({
                 id: Number(currentChat.id),
