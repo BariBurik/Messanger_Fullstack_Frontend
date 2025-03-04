@@ -11,7 +11,7 @@ import { guest } from '../../../public/guest.jpg'
 
 function Settings() {
 
-    const userAgent = process.env.USER_AGENT || ''; 
+    const userAgent = navigator.userAgent || ''; 
     const isMobile = /android|ios|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
     const dispatch = useAppDispatch()
 

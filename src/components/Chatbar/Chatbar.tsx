@@ -12,7 +12,7 @@ import { useAppSelector } from "@/hooks/redux";
 
 // Основной компонент Chatbar
 function Chatbar() {
-    const userAgent = process.env.USER_AGENT || ''; 
+    const userAgent = navigator.userAgent || '';  
     const isMobile = /android|ios|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
     const [isOpen, setIsOpen] = useState(false)
     const [chatTimes, setChatTimes] = useState<Record<string, number>>({});

@@ -32,7 +32,7 @@ function Search({query, onChange, placeholder, searchResultSize="fullScreen", se
 
     const { data } = useGetUsersPerQueryQuery({searchQuery: query, excludes})
 
-    const userAgent = process.env.USER_AGENT || ''; 
+    const userAgent = navigator.userAgent || ''; 
     const isMobile = /android|ios|iphone|ipad|ipod/i.test(userAgent.toLowerCase());
 
     const handeClickToItem = (id: number, name: string) => {
