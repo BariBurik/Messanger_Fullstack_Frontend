@@ -53,7 +53,7 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
             setChatName(currentChat.name)
         }
         if (currentChat.avatar) {
-            setImage(`http://localhost:8000/media/${currentChat.avatar}`)
+            setImage(`http://95.163.230.130:8000/media/${currentChat.avatar}`)
         }
     }, [currentChat]);
 

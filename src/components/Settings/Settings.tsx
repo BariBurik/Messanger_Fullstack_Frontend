@@ -28,7 +28,7 @@ function Settings() {
 
     const handleExit = () => {
         setUserLogout(dispatch)
-        fetch('http://localhost:8000/delete-http-only-cookie/', 
+        fetch('http://95.163.230.130:8000/delete-http-only-cookie/', 
             { 
                 method: 'GET', 
                 credentials: 'include' 
