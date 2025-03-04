@@ -20,7 +20,7 @@ function Message({children, direction, time, avatar}: MessageProps) {
                     <div className={styles.message_time}>{time}</div>
                     <p>{children}</p>
                 </div>
-                <img src={`${avatar !== undefined ? `http://95.163.230.130${avatar}` : guest}`} className={styles.users_avatar}/>
+                <img src={`${avatar !== undefined ? `http://95.163.230.130/media/${avatar}` : guest}`} className={styles.users_avatar}/>
             </div>
         );
     } else {
@@ -32,7 +32,7 @@ function Message({children, direction, time, avatar}: MessageProps) {
                     <div className={styles.message_reverse_time}>{time}</div>
                     <p>{children}</p>
                 </div>
-                <img src={`${avatar !== undefined ? `http://95.163.230.130${avatar}` : guest}`} className={styles.users_avatar}/>
+                <img src={`${avatar !== undefined ? `http://95.163.230.130/media/${avatar}` : guest}`} className={styles.users_avatar}/>
             </div>
         );
     }

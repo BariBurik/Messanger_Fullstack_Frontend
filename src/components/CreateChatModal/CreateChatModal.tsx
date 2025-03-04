@@ -50,7 +50,7 @@ function CreateChatModal({isOpen, setIsOpen}: CreateChatModalProps) {
 
         if (participants) {
             setIsOpen(false)
-            console.log(participants)
+            console.log('dsd' + participants)
             createChatroom({
                 name: chatName, 
                 users: participants,
