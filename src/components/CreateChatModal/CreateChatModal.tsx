@@ -48,6 +48,7 @@ function CreateChatModal({isOpen, setIsOpen}: CreateChatModalProps) {
             participants[`user${i + 1}`] = Number(selected[i].id) 
         }
         console.log(participants)
+        console.log(selected)
         setIsOpen(false)
         createChatroom({
             name: chatName, 
