@@ -53,7 +53,7 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
             setChatName(currentChat.name)
         }
         if (currentChat.avatar) {
-            setImage(`http://95.163.230.130:8000/media/${currentChat.avatar}`)
+            setImage(`http://localhost:8000/media/${currentChat.avatar}`)
         }
     }, [currentChat]);
 
@@ -63,7 +63,7 @@ export function ChangeChatModal({isOpen, setIsOpen}: ChangeChatModalProps) {
         let participants: Partial<IChatroomCreateArgs> = {};
 
         for (let i = 0; i < selected.length; i++) {
-            participants[`user${i + 2}`] = Number(selected[i].id) 
+            participants[`user${i + 1}`] = Number(selected[i].id) 
         }
 
         if (participants && chatName && selected.length > 0 && selected.length < 8) {
