@@ -27,6 +27,7 @@ export const messageAPI = createApi({
           `,
           variables: { accessToken, chatroomName, text },
         }),
+        invalidatesTags: ["SendMessage"]
       })
     }),
     changeMessage: builder.mutation<string, { messageId: number; text: string }>({
@@ -80,6 +81,7 @@ export const messageAPI = createApi({
           `,
           variables: { chatroomName, limit, beforeId },
         }),
+        providesTags: ["SendMessage"]
       })
     }),
   }),
