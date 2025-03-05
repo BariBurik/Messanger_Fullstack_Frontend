@@ -1,12 +1,13 @@
 .container {
     display: flex;
     flex-direction: row-reverse;
-    margin: 20px;
+    padding: 20px 40px 20px 20px;
 }
 
 .reverse_container {
     display: flex;
-    margin: 20px 50px 20px 0 ;
+    padding: 20px 20px 20px 40px;
+    margin-right: 5px;
 }
 
 .message_container, .message_reverse_container {

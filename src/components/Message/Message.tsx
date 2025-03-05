@@ -12,6 +12,8 @@ interface MessageProps {
 
 function Message({children, direction, time, avatar}: MessageProps) {
 
+    console.log(avatar)
+
     if (direction === "for u") {
         return ( 
             <div className={styles.container}>
@@ -20,7 +22,7 @@ function Message({children, direction, time, avatar}: MessageProps) {
                     <div className={styles.message_time}>{time}</div>
                     <p>{children}</p>
                 </div>
-                <img src={`${avatar !== undefined ? `http://localhost:8000/media/${avatar}` : guest}`} className={styles.users_avatar}/>
+                <img src={`${avatar ? `http://localhost:8000/media/${avatar}` : guest}`} className={styles.users_avatar}/>
             </div>
         );
     } else {
@@ -32,7 +34,7 @@ function Message({children, direction, time, avatar}: MessageProps) {
                     <div className={styles.message_reverse_time}>{time}</div>
                     <p>{children}</p>
                 </div>
-                <img src={`${avatar !== undefined ? `http://localhost:8000/media/${avatar}` : guest}`} className={styles.users_avatar}/>
+                <img src={`${avatar ? `http://localhost:8000/media/${avatar}` : guest}`} className={styles.users_avatar}/>
             </div>
         );
     }

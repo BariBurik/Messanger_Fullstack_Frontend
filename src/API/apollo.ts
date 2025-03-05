@@ -5,7 +5,7 @@ import { setContext } from '@apollo/client/link/context';
 
 
 const httpLinkGraphene = new HttpLink({
-    uri: 'http://localhost:8000/graphql/graphene/',
+    uri: 'http://95.163.230.130:8000/graphql/graphene/',
     credentials: 'include',
     headers: {
         'Content-Type': 'application/json',
@@ -13,7 +13,7 @@ const httpLinkGraphene = new HttpLink({
 });
 
 const httpLinkStrawberry = new HttpLink({
-    uri: 'http://localhost:8000/graphql/strawberry/',
+    uri: 'http://95.163.230.130:8000/graphql/strawberry/',
     credentials: 'include',
     headers: {
         'Content-Type': 'application/json',
