@@ -1,6 +1,6 @@
 ### Месенджер
 
-<p>Это проект, в котором реализован мессенджер, для того, чтобы проект работал, необходимо, также установить backend часть <a href="https://github.com/BariBurik/Messanger_Fullstack_Backend">Messenger_Fullstack_Backend</a></p>
+<p>Это проект, в котором реализован мессенджер, для того, чтобы проект работал, необходимо, также установить backend часть <a href="https://github.com/BariBurik/Messenger_Fullstack_Backend">Messenger_Fullstack_Backend</a></p>
 
 ### `npm install`
 
